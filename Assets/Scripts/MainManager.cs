@@ -72,5 +72,18 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        UpdateRecord();
+    }
+
+    private void UpdateRecord()
+    {
+        if (m_Points > GameController.instance.bestScore)
+        {
+            GameController.instance.bestScore = m_Points;
+            GameController.instance.bestPlayerName = GameController.instance.playerName;
+
+            GameController.instance.SaveData();
+
+        }
     }
 }

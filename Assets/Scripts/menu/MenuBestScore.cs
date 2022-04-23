@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class MenuBestScore : MonoBehaviour
 {
-    public TextMeshProUGUI playerNameText;
+    public TextMeshProUGUI bestPlayerNameText;
     public TextMeshProUGUI bestScoreText;
 
     // Start is called before the first frame update
@@ -16,15 +16,16 @@ public class UIManager : MonoBehaviour
 
     private void SetBestScore()
     {
-        if(GameController.instance.bestScore == 0)
+        if (GameController.instance.bestScore == 0)
         {
-            playerNameText.text = "---";
+            bestPlayerNameText.text = "---";
             bestScoreText.text = "---";
         }
         else
         {
-            playerNameText.text = GameController.instance.playerName;
+            bestPlayerNameText.text = GameController.instance.bestPlayerName;
             bestScoreText.text = GameController.instance.bestScore.ToString();
         }
     }
+
 }
